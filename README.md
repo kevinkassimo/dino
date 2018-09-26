@@ -1,7 +1,7 @@
 # Dino
 
 Modules and wrapper for Deno. In-progress work, syncing with Deno. Only provides async API.    
-Available at [https://denoland.org/dino.ts](https://denoland.org/dino.ts).
+Available at [https://denoland.org/dino/dino.ts](https://denoland.org/dino/dino.ts).
 
 ## API
 ### fs
@@ -14,7 +14,8 @@ rename(oldpath: string, newpath: string): Promise<void>;
 remove(path: string): Promise<void>;
 removeAll(path: string): Promise<void>
 makeDir(path: string, mode = 0o777): Promise<void>;
-makeTempDirSync(options: deno.MakeTempDirOptions = {}): string;
+makeTempDir(options: deno.MakeTempDirOptions = {}): Promise<string>;
+symLink(filename: string, linkname: string, type?: string): Promise<void>;
 ```
 ### os
 ```ts
@@ -25,7 +26,7 @@ env(): { [index: string]: string };
 
 ## Example
 ```ts
-import {fs} from 'https://denoland.org/dino.ts';
+import {fs} from 'https://denoland.org/dino/dino.ts';
 
 fs.writeFile('test.txt', 'Hello world');
 ```
